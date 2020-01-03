@@ -5,7 +5,14 @@
 * Add `hosts.txt`
 
 ## Add hosts.txt
+```
+.
+├── ansible.cfg
+├── hosts.txt
+└── README.md
 
+```
+Content:
 ```
 [group_name]
 machine_name ansible_host=192.168.0.255
@@ -13,8 +20,15 @@ machine_name ansible_host=192.168.0.255
 
 ## Add group variables
 
-`group_vars/group_name`
-
+```
+.
+├── ansible.cfg
+├── group_vars
+│   └── group_name
+├── hosts.txt
+└── README.md
+```
+Content:
 ```
 ---
 ansible_user: user_name
