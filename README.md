@@ -2,7 +2,9 @@
 
 ## Table of content
 
-* Add `hosts.txt`
+* [Add hosts.txt](#add-hoststxt)
+* [Add group variables](#add-group-variables)
+* [Check that ansible can connect to your machines](#check-that-ansible-can-connect-to-your-machines)
 
 ## Add hosts.txt
 ```
