@@ -47,6 +47,11 @@ ansible-playbook playbooks/check-connections.yml -v
 ## Upgrade APT packages
 
 ```
-ansible-playbook playbooks/upgrade-apt-pkgs.yml -v
+ansible-playbook playbooks/upgrade-apt-packages.yml -v
 ```
 
+## Install snap packages
+
+```
+ansible-playbook playbooks/install-snap-packages.yml -v
+```
