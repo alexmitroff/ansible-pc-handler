@@ -1,0 +1,54 @@
+---
+- name: Install snap packages
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Install normal snap packages
+    snap:
+      name:
+        - gimp
+        - inkscape
+        - vlc
+        - syncthing
+        - telegram-desktop
+        - opera
+        - obs-studio
+        - audacity
+        - chromium
+        - darktable
+        - discord
+        - firefox
+        - libreoffice
+
+  - name: Install classic snap packages
+    snap:
+      classic: yes
+      name:
+        - slack
+        - skype
+        - pycharm-professional
+        - blender
+        - atom
+
+  - name: Remove APT doubles
+    apt:
+      state: absent
+      name:
+        - gimp
+        - inkscape
+        - vlc
+        - syncthing
+        - telegram-desktop
+        - obs-studio
+        - audacity
+        - chromium-browser
+        - darktable
+        - firefox
+        - libreoffice
+        - slack
+        - blender
+  - name: Remove dependencies that are no longer required
+    apt:
+      autoremove: yes
+
