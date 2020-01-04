@@ -35,10 +35,18 @@ Content:
 ---
 ansible_user: user_name
 ansible_ssh_private_key_file: path_to_ssh_key
+ansible_sudo_pass: password_if_user_will_use_sudo_cmd
 ```
 
 ## Check that ansible can connect to your machines
 
 ```
-ansible-playbook playbooks/check-connections.yml
+ansible-playbook playbooks/check-connections.yml -v
 ```
+
+## Upgrade APT packages
+
+```
+ansible-playbook playbooks/upgrade-apt-pkgs.yml -v
+```
+

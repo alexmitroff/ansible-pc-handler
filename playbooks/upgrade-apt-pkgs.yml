@@ -1,0 +1,13 @@
+---
+- name: Upgrade apt packages
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Update apt sources
+    apt: 
+      update_cache: yes
+  - name: Upgrade apt packages
+    apt:
+      upgrade: yes
+
