@@ -1,0 +1,55 @@
+---
+- name: Install apt packages
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Add Yandex.Disk PPA GPG key
+    apt_key:
+      url: http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG
+  - name: Add Yandex.Disk PPA
+    apt_repository:
+      state: present
+      repo: deb http://repo.yandex.ru/yandex-disk/deb/ stable main
+
+  - name: Add Lutris PPA
+    apt_repository:
+        state: present
+        repo: ppa:lutris-team/lutris
+
+  - name: Add SC-controller PPA (18.10) key
+    apt_key:
+      url: https://download.opensuse.org/repositories/home:kozec/xUbuntu_18.10/Release.key
+  - name: Add SC-controller PPA (18.10)
+    apt_repository:
+      state: present
+      repo: deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.10/ /
+
+  - name: Add Teamviewer PPA ASC key
+    apt_key:
+      url: https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc
+  - name: Add Teamviewer PPA
+    apt_repository:
+      state: present
+      repo: deb http://linux.teamviewer.com/deb stable main
+
+  - name: Install APT packages
+    apt:
+      update_cache: yes
+      state: present
+      name:
+        - build-essential
+        - docker
+        - docker-compose
+        - ffmpeg
+        - geany
+        - mesa-utils
+        - mesa-vulkan-drivers
+        - mesa-vulkan-drivers:i386
+        - vulkan-utils
+        - glmark2
+        - synaptic
+        - transmission
+        - virtualbox
+        - vim
+        - sc-controller
