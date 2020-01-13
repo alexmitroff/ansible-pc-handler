@@ -1,0 +1,17 @@
+---
+- name: Install apt packages
+  hosts: system76
+  become: yes
+
+  tasks:
+  - name: Add System76 PPA
+    apt_repository:
+      state: present
+      repo: ppa:system76-dev/stable
+
+  - name: Install System76 packages
+    apt:
+      update_cache: yes
+      state: present
+      name:
+        - system76-driver
